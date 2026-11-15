@@ -2,6 +2,10 @@
 
 This program translates the TF2 chat into English during the game.
 
+![The translator: the menu, mode 1 and mode 3](docs/demo.gif)
+
+NOTE: The game picture in the animation is an example. The translator shows the translations above the chat in your game.
+
 ## Procedure: Install the translator
 
 1. On this page, click the green **Code** button.

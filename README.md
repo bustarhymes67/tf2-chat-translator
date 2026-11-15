@@ -41,7 +41,7 @@ Keep the black window open while you play. Closing it stops the translator.
 - **Modes 3 and 4 don't work:** quit Steam, run Setup (5) again, then start TF2.
 
 <details>
-<parameter name="summary">More details (settings, removing it)</summary>
+<summary>More details (settings, removing it)</summary>
 
 **What Setup changes:** it adds these to TF2's launch options and keeps the ones you already had:
 `-condebug -usercon +ip 0.0.0.0 +rcon_password <random> +hostport 27069 +net_start`

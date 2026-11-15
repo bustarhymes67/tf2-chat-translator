@@ -48,8 +48,8 @@ class WorkerTest(unittest.TestCase):
         self.assertEqual((out[0]["text"], out[0]["team"]), ("wait", True))
 
     def test_our_own_chat_line_is_not_translated_again(self):
-        asked, _ = run_worker(dict(translator.DEFAULTS), ["Me :  Juan: hola amigos que tal"],
-                              said={"Juan: hola amigos que tal"})
+        asked, _ = run_worker(dict(translator.DEFAULTS), ["Me :  Juan says: hola amigos que tal"],
+                              said={"Juan says: hola amigos que tal"})
         self.assertEqual(asked, [])
 
 
@@ -59,8 +59,8 @@ class ChatTest(unittest.TestCase):
 
     def test_waiting_lines_are_joined_per_chat(self):
         waiting = [self.entry("A", "hi"), self.entry("B", "go"), self.entry("C", "push", team=True)]
-        self.assertEqual(translator.next_chat_line(waiting), ("say", "A: hi | B: go"))
-        self.assertEqual(translator.next_chat_line(waiting), ("say_team", "C: push"))
+        self.assertEqual(translator.next_chat_line(waiting), ("say", "A says: hi | B says: go"))
+        self.assertEqual(translator.next_chat_line(waiting), ("say_team", "C says: push"))
         self.assertEqual(waiting, [])
 
     def test_lines_fit_tf2s_limit_and_cant_break_the_command(self):
@@ -121,7 +121,7 @@ class RconTest(unittest.TestCase):
         deadline = time.time() + 5
         while time.time() < deadline and not got:
             time.sleep(0.05)
-        self.assertEqual(got, ['say "Ivan: wait"'])
+        self.assertEqual(got, ['say "Ivan says: wait"'])
 
 
 if __name__ == "__main__":

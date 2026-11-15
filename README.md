@@ -89,6 +89,8 @@ NOTE: The translator does not translate English text.
 | The message "Python isn't installed" shows. | Install Python again. Make sure that you select **Add python.exe to PATH**. |
 | Mode 3 or mode 4 does not operate. | Close Steam. Do the setup procedure again. Start TF2. |
 
+If you are still stuck, ask [Claude](https://claude.ai).
+
 <details>
 <summary>More information</summary>
 

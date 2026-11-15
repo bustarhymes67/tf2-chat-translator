@@ -446,12 +446,12 @@ def console_safe(text):
 
 
 def chat_text(entry):
-    return console_safe(f"{entry['name']}: {entry['text']}")
+    return console_safe(f"{entry['name']} says: {entry['text']}")
 
 
 def next_chat_line(waiting):
     """Takes the next line to say from `waiting` (a list of entries, oldest first). When several
-    wait, they go out together as one line, "A: x | B: y", as TF2 lets few lines through."""
+    wait, they go out together as one line, "A says: x | B says: y", as TF2 lets few lines through."""
     command = "say_team" if waiting[0]["team"] else "say"
     text = chat_text(waiting.pop(0))
     while waiting and ("say_team" if waiting[0]["team"] else "say") == command \
@@ -628,12 +628,12 @@ class Overlay:
     def _release(self, _e):
         p, self.press = self.press, None
         if p and not p["dragging"] and p["entry"]:
-            self._copy(f'{p["entry"]["name"]}: {p["entry"]["text"]}', "Copied translation")
+            self._copy(f'{p["entry"]["name"]} says: {p["entry"]["text"]}', "Copied translation")
 
     def _copy_original(self, _e):
         entry = self._entry_under_mouse()
         if entry:
-            self._copy(f'{entry["name"]}: {entry["original"]}', "Copied original")
+            self._copy(f'{entry["name"]} says: {entry["original"]}', "Copied original")
 
     def _copy(self, text, status):
         self.root.clipboard_clear()
@@ -689,7 +689,7 @@ class Overlay:
             top_limit = self.line_h + 4
         y = c.winfo_height() - 5
         for i, e in reversed(self.visible()):
-            label = f"[{e['lang'].upper()}]{' (TEAM)' if e['team'] else ''} {e['name']}: {e['text']}"
+            label = f"[{e['lang'].upper()}]{' (TEAM)' if e['team'] else ''} {e['name']} says: {e['text']}"
             # Shadow first, then text, so it stays readable on any background.
             shadow = c.create_text(6, y + 1, text=label, anchor="sw", width=wrap,
                                    font=self.font, fill="black", tags=(f"e{i}",))

@@ -51,8 +51,8 @@ Use this procedure if you do not want to use option 5. The result is the same.
 3. Open the file **`Start Translator.bat`**. Type **1**. Push **Enter**. This makes the file `config.json`.
 4. Close the black window.
 5. Open the file `config.json` with Notepad.
-6. Find the line `"rcon_password": "",`.
-7. Type your password between the two quotation marks. Example: `"rcon_password": "k7f2m9q4",`.
+6. Find the line `"rcon_password": ""`.
+7. Type your password between the two quotation marks. Example: `"rcon_password": "k7f2m9q4"`.
 8. Save the file.
 9. Start TF2 again.
 

@@ -41,6 +41,31 @@ This program translates the TF2 chat into English during the game.
 
 To stop the translator, close the black window.
 
+## What option 5 (setup) does
+
+The setup procedure changes only the TF2 launch options in Steam. It does not change TF2 files. It does not install software. It does not use the internet. You can read all of the code in the file `setup_tf2.py`.
+
+The setup procedure does these steps:
+
+1. It makes a random password. The file `config.json` on your computer keeps the password.
+2. It makes sure that Steam is closed. Steam deletes changes to its settings when Steam closes.
+3. It makes a backup copy of the Steam settings file (`localconfig.vdf`).
+4. It adds the options in the table to the TF2 launch options. It keeps your other launch options.
+
+| Option | Function |
+|---|---|
+| `-condebug` | TF2 writes the chat into the file `console.log`. The translator reads the chat from this file. All modes use this option. |
+| `-usercon` | TF2 accepts commands from other programs (RCON). Mode 3 and mode 4 use this option to send the translations to the chat. |
+| `+rcon_password <random>` | TF2 accepts commands only from a program that has this password. |
+| `+hostport 27069` | The translator connects to TF2 on this port. |
+| `+ip 0.0.0.0` and `+net_start` | These options start the network function of TF2 that RCON uses. |
+
+NOTE: With `+ip 0.0.0.0`, computers on your home network can connect to RCON. They must have the random password. Windows Firewall usually blocks connections from outside your home network.
+
+NOTE: The translator sends the chat text to Google Translate and MyMemory for the translation. It does not send other data.
+
+To see the changes, right-click **Team Fortress 2** in Steam. Click **Properties**. Look at **Launch Options**.
+
 ## Notes
 
 NOTE: Set TF2 to **Windowed** or **Fullscreen Windowed** mode. If you do not do this, you do not see the translations.
@@ -62,11 +87,6 @@ NOTE: The translator does not translate English text.
 
 <details>
 <summary>More information</summary>
-
-**Changes that the setup procedure makes:**
-The setup procedure adds these options to the TF2 launch options. It keeps your other launch options.
-`-condebug -usercon +ip 0.0.0.0 +rcon_password <random> +hostport 27069 +net_start`
-The password is random. The file `config.json` on your computer keeps the password.
 
 **If the setup procedure cannot find Steam:**
 1. In Steam, right-click **Team Fortress 2**.

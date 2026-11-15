@@ -251,7 +251,7 @@ def claim_instance(name):
 
 def single_instance(name, message="Already running in another window; close that one first."):
     """Exits if this script is already running (e.g. its .bat was opened twice),
-    so chat doesn't get translated twice and Steam/Google aren't asked twice."""
+    so chat isn't translated (or said in chat) twice and Google isn't asked twice."""
     if not claim_instance(name):
         if ctypes.windll.kernel32.GetConsoleWindow():
             print(message)

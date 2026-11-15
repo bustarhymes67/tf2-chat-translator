@@ -27,6 +27,37 @@ NOTE: The game picture in the animation is an example. The translator shows the 
 5. Push **Enter**.
 6. Close the window.
 
+## Procedure: Set TF2 for the translator manually (alternative to option 5)
+
+Use this procedure if you do not want to use option 5. The result is the same.
+
+**For mode 1 and mode 2:**
+
+1. In Steam, right-click **Team Fortress 2**.
+2. Click **Properties**.
+3. On the **General** tab, find **Launch Options**.
+4. Type `-condebug` in the box. Put a space between this option and other options in the box.
+5. Close the window. Steam saves the option automatically.
+
+**For mode 3 and mode 4, also do these steps:**
+
+1. Make a password. Use only letters and numbers. Do not use spaces. Example: `k7f2m9q4`.
+2. In **Launch Options**, type this text after `-condebug`. Replace `YOURPASSWORD` with your password:
+
+   ```
+   -usercon +ip 0.0.0.0 +rcon_password YOURPASSWORD +hostport 27069 +net_start
+   ```
+
+3. Open the file **`Start Translator.bat`**. Type **1**. Push **Enter**. This makes the file `config.json`.
+4. Close the black window.
+5. Open the file `config.json` with Notepad.
+6. Find the line `"rcon_password": "",`.
+7. Type your password between the two quotation marks. Example: `"rcon_password": "k7f2m9q4",`.
+8. Save the file.
+9. Start TF2 again.
+
+NOTE: The password in **Launch Options** and the password in `config.json` must be the same. If they are different, mode 3 and mode 4 do not operate.
+
 ## Procedure: Use the translator
 
 1. Start Steam.
@@ -94,12 +125,7 @@ If you are still stuck, ask [Claude](https://claude.ai).
 <details>
 <summary>More information</summary>
 
-**If the setup procedure cannot find Steam:**
-1. In Steam, right-click **Team Fortress 2**.
-2. Click **Properties**.
-3. In **Launch Options**, type `-condebug`.
-
-This option is sufficient for mode 1 and mode 2.
+**If the setup procedure cannot find Steam:** do the manual procedure.
 
 **Settings:**
 Close the translator. Then change these settings in the file `config.json` with Notepad:
